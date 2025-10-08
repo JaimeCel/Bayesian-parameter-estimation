@@ -15,7 +15,7 @@ The notebook walks through defining a model, constructing posterior and proposal
 ---
 
 ##  Results
-The notebook generates MCMC trace and posterior distribution plots, yielding best-fit values and credible intervals for the Hubble constant and matter density parameter.
+The notebook generates MCMC trace and posterior distribution plots, yielding values for the Hubble constant and matter density parameter.
 This enables us to determine the 68% confidence intervals for each estimated parameter.
 
 ---

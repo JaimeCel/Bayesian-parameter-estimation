@@ -1,24 +1,21 @@
 # Bayesian Parameter Estimation of Cosmological Models using MCMC
+
 ## Overview
-In this project, we estimate two fundamental parameters in cosmology: the Hubble constant and the matter density parameter.
-We employ a Bayesian framework, specifically using the Markov Chain Monte Carlo (MCMC) method, to infer their most probable values based on observational data.
-The notebook walks through defining a model, constructing posterior and proposal functions, and running an MCMC chain to estimate parameters. 
 
----
+I estimate two cosmological parameters — the Hubble constant (H₀) and the matter density parameter (Ωm) — from observational data on galaxy expansion rates. I built the Metropolis-Hastings sampler from scratch rather than calling a library, mostly because I wanted to understand what's actually happening at each step.
 
-##  Workflow 
-- Define the cosmological model.
-- Construct the posterior probability function combining priors and likelihood.
-- Implement the proposal function for parameter updates.
-- Run the MCMC chain.
-- Analyze convergence and burn in regions and visualize parameter estimations.
----
+## Workflow
 
-##  Results
-The notebook generates MCMC trace and posterior distribution plots, yielding values for the Hubble constant and matter density parameter.
-This enables us to determine the 68% confidence intervals for each estimated parameter.
+- Define the cosmological model H(z; H₀, Ωm)
+- Build the Gaussian likelihood and prior distributions
+- Implement the Metropolis-Hastings proposal and acceptance step
+- Run the chain (1M steps, 100k burn-in)
+- Check convergence and visualize the posterior distributions
 
----
+## Results
 
-##  Notes
-The dataset is stored in a Google Drive folder for size issues. You can download it from this link [Dataset](https://drive.google.com/file/d/1Z9YyuZSNVbWEV0S2HT1GRVama11JNr8R/view?usp=drive_link)
+With a uniform prior, the 68% confidence intervals land at H₀ ∈ (67.2, 70.8) km/s/Mpc and Ωm ∈ (0.308, 0.322). Switching to an informative Gaussian prior on Ωm tightens both intervals — expected, since you're feeding the sampler more information. Acceptance rate sits around 9.5%, slightly below the ~23% optimum for a 2-parameter sampler, which suggests the proposal widths could be tuned tighter.
+
+## Dataset
+
+[Download here](https://drive.google.com/file/d/1Z9YyuZSNVbWEV0S2HT1GRVama11JNr8R/view?usp=drive_link)
